@@ -1,0 +1,7 @@
+open the url https://quadhq.ai/
+navigate to start pilot
+If login required, use credential- Email: mishra.devesh@edvanta.com, Password: Pass@123
+click on the pilot button and then navigate to next page
+Verify that the url has /dashboard.
+now click on the chat from left navigation
+now Verify that chat page is successfuly open and loaded.
