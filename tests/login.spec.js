@@ -5,7 +5,7 @@ test('Login and navigate to My Courses page', async ({ page }) => {
   await page.goto('https://indisec.edvantalabs.com/');
 
   // Wait for the page to load
-  await page.waitForLoadState('networkidle');git 
+  await page.waitForLoadState('networkidle');
 
   // Step 1: Fill in the email field and click CONTINUE
   await page.getByLabel('your email address').fill('mishra.devesh@edvanta.com');
