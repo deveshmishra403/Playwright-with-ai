@@ -1,0 +1,30 @@
+- generic [active] [ref=e1]:
+  - status
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - main [ref=e10]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - paragraph [ref=e14]:
+            - text: WELCOMETO
+            - img [ref=e15]
+          - link "EXIT" [ref=e16] [cursor=pointer]:
+            - /url: https://indisec.edvantalabs.com/login/logout.php?sesskey=b9MZIoUbot
+            - img [ref=e17]
+            - text: EXIT
+        - generic [ref=e20]:
+          - paragraph [ref=e23]:
+            - text: Our
+            - strong [ref=e24]: DPDP Act Training Course
+            - text: is designed to help your organization achieve and maintain compliance with the
+            - strong [ref=e25]: Digital Personal Data Protection Act, 2023
+            - text: . Aligned with the Act’s mandate for periodic training and organizational preparedness, this program equips your teams with the knowledge and skills needed to manage personal data responsibly, reduce compliance risks, and foster a culture of privacy across all levels.
+          - link "HELP" [ref=e28] [cursor=pointer]:
+            - /url: https://indisec.com/contactus
+          - generic [ref=e29]:
+            - generic [ref=e30]: Press Enter
+            - link [ref=e32] [cursor=pointer]:
+              - /url: https://indisec.edvantalabs.com/my/courses.php
+              - img [ref=e33]
+            - generic [ref=e36]: Click Enter To Begin Your Journey

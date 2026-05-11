@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - status
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - main [ref=e10]:
+      - generic [ref=e12]: To reset your password, submit your username or your email address below. If we can find you in the database, an email will be sent to your email address, with instructions how to get access again.
+      - generic [ref=e13]:
+        - group "Search by username" [ref=e14]:
+          - generic [ref=e15]: Search by username
+          - heading [level=3] [ref=e18]: Search by username
+          - generic [ref=e19]:
+            - generic [ref=e20]:
+              - generic [ref=e22]: Username
+              - textbox "Username" [ref=e24]
+            - button "Search" [ref=e28] [cursor=pointer]
+        - group "Search by email address" [ref=e29]:
+          - generic [ref=e30]: Search by email address
+          - heading [level=3] [ref=e33]: Search by email address
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e37]: Email address
+              - textbox "Email address" [ref=e39]
+            - button "Search" [ref=e43] [cursor=pointer]

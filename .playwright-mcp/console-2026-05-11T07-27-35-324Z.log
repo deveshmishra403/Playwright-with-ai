@@ -1,0 +1,3 @@
+[   17671ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://indisec.edvantalabs.com/local/customlogin/password.php:0
+[   38240ms] [LOG] Starting Moodle session timeout warning. @ https://indisec.edvantalabs.com/lib/requirejs.php/1770207380/core/first.js:240
+[   81785ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://indisec.edvantalabs.com/local/customlogin/password.php:0

@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - status
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - main [ref=e10]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - img "INDISEC" [ref=e14]
+          - heading "Log in to INDISEC" [level=1] [ref=e15]
+        - heading "WELCOME" [level=2] [ref=e16]
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: your email address
+            - textbox "your email address" [ref=e20]
+          - heading "YOUR EMAIL" [level=3] [ref=e21]
+          - button "CONTINUE" [ref=e23] [cursor=pointer]
+        - generic [ref=e25]:
+          - link "PRIVACY POLICY" [ref=e26] [cursor=pointer]:
+            - /url: https://indisec.com/privacypolicy
+          - link "TERM OF USE" [ref=e27] [cursor=pointer]:
+            - /url: https://indisec.com/termsandconditions
+          - link "COOKIES POLICY" [ref=e28] [cursor=pointer]:
+            - /url: https://indisec.com/cookiepolicy

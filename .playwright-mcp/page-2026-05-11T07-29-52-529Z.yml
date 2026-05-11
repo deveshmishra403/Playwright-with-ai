@@ -1,0 +1,164 @@
+- generic [ref=e1]:
+  - status
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - navigation "Site navigation" [ref=e4]:
+      - generic [ref=e5]:
+        - link "INDISEC" [ref=e6] [cursor=pointer]:
+          - /url: https://indisec.edvantalabs.com/my/courses.php
+          - img "INDISEC" [ref=e7]
+        - navigation [ref=e9]:
+          - menubar [ref=e10]:
+            - menuitem "My courses" [ref=e11] [cursor=pointer]
+            - menuitem "Site administration" [ref=e12] [cursor=pointer]
+            - text: 
+        - list
+        - generic [ref=e13]:
+          - button "Show notification window with no new notifications" [ref=e15] [cursor=pointer]:
+            - generic [ref=e16]: 
+          - button "Toggle messaging drawer" [ref=e18] [cursor=pointer]:
+            - generic [ref=e19]: 
+            - generic [ref=e20]:
+              - text: "1"
+              - generic [ref=e21]: There are 1 unread conversations
+          - generic [ref=e25]:
+            - button "User menu" [expanded] [ref=e26] [cursor=pointer]:
+              - img "Dev Test" [ref=e30]: DT
+              - text: 
+            - menu "User" [active] [ref=e205]:
+              - menuitem "Profile" [ref=e206] [cursor=pointer]
+              - menuitem "Log out" [ref=e209] [cursor=pointer]
+          - generic [ref=e33]:
+            - generic [ref=e34]: Edit mode
+            - checkbox "Edit mode" [ref=e36]
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - button "Open block drawer" [ref=e40] [cursor=pointer]:
+          - generic [ref=e41]: Open block drawer
+          - generic [ref=e43]: 
+          - text: 
+        - banner [ref=e44]:
+          - generic [ref=e46]:
+            - heading "Hi, Dev! 👋" [level=1] [ref=e47]
+            - generic [ref=e51]:
+              - button "Manage courses" [ref=e53] [cursor=pointer]
+              - button "Create course" [ref=e55] [cursor=pointer]
+        - main [ref=e59]:
+          - region "Main content blocks" [ref=e61]:
+            - heading "Main content blocks" [level=2] [ref=e62]
+            - link "Skip Course overview" [ref=e63] [cursor=pointer]:
+              - /url: "#sb-4"
+            - region "Course overview" [ref=e64]:
+              - navigation [ref=e67]:
+                - separator [ref=e68]
+                - text:   
+                - generic [ref=e131]:
+                  - list [ref=e134]:
+                    - listitem [ref=e135]:
+                      - link "Indisec Demo Course1" [ref=e136] [cursor=pointer]:
+                        - /url: https://indisec.edvantalabs.com/course/view.php?id=2
+                        - generic [ref=e137]:
+                          - img [ref=e138]
+                          - generic [ref=e139]: Indisec Demo Course1
+                      - generic [ref=e140]:
+                        - generic [ref=e141]:
+                          - link "Course name Indisec Demo Course1" [ref=e144] [cursor=pointer]:
+                            - /url: https://indisec.edvantalabs.com/course/view.php?id=2
+                            - generic: 
+                            - generic [ref=e145]: Course name
+                            - generic "Indisec Demo Course1" [ref=e146]:
+                              - generic [ref=e147]: Indisec Demo Course1
+                              - text: Indisec Demo Course1
+                          - generic [ref=e149]:
+                            - generic [ref=e150]:
+                              - progressbar
+                            - heading "0% complete" [level=5] [ref=e152]
+                        - link [ref=e154] [cursor=pointer]:
+                          - /url: https://indisec.edvantalabs.com/course/view.php?id=2
+                          - img [ref=e155]
+                    - listitem [ref=e157]:
+                      - link "Indisec Demo Course2" [ref=e158] [cursor=pointer]:
+                        - /url: https://indisec.edvantalabs.com/course/view.php?id=3
+                        - generic [ref=e159]:
+                          - img [ref=e160]
+                          - generic [ref=e161]: Indisec Demo Course2
+                      - generic [ref=e162]:
+                        - generic [ref=e163]:
+                          - link "Course name Indisec Demo Course2" [ref=e166] [cursor=pointer]:
+                            - /url: https://indisec.edvantalabs.com/course/view.php?id=3
+                            - generic: 
+                            - generic [ref=e167]: Course name
+                            - generic "Indisec Demo Course2" [ref=e168]:
+                              - generic [ref=e169]: Indisec Demo Course2
+                              - text: Indisec Demo Course2
+                          - generic [ref=e171]:
+                            - generic [ref=e172]:
+                              - progressbar
+                            - heading "0% complete" [level=5] [ref=e174]
+                        - link [ref=e176] [cursor=pointer]:
+                          - /url: https://indisec.edvantalabs.com/course/view.php?id=3
+                          - img [ref=e177]
+                    - listitem [ref=e179]:
+                      - 'link "Mastering Data Privacy and Data Protection Law: A Global and Indian Legal Framework" [ref=e180] [cursor=pointer]':
+                        - /url: https://indisec.edvantalabs.com/course/view.php?id=6
+                        - generic [ref=e181]:
+                          - img [ref=e182]
+                          - generic [ref=e183]: "Mastering Data Privacy and Data Protection Law: A Global and Indian Legal Framework"
+                      - generic [ref=e184]:
+                        - generic [ref=e185]:
+                          - 'link "Course name Mastering Data Privacy and Data Protection Law: A Global and Indian Legal Framework" [ref=e188] [cursor=pointer]':
+                            - /url: https://indisec.edvantalabs.com/course/view.php?id=6
+                            - generic: 
+                            - generic [ref=e189]: Course name
+                            - 'generic "Mastering Data Privacy and Data Protection Law: A Global and Indian Legal Framework" [ref=e190]':
+                              - generic [ref=e191]: "Mastering Data Privacy and Data Protection Law: A Global and Indian Legal Framework"
+                              - text: "Mastering Data Privacy and Data Protection Law: A ..."
+                          - generic [ref=e193]:
+                            - progressbar [ref=e195]
+                            - heading "10% complete" [level=5] [ref=e197]
+                        - link [ref=e199] [cursor=pointer]:
+                          - /url: https://indisec.edvantalabs.com/course/view.php?id=6
+                          - img [ref=e200]
+                  - generic:
+                    - generic:    
+      - contentinfo [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - link "indisec" [ref=e97] [cursor=pointer]:
+                - /url: "#"
+                - img "indisec" [ref=e98]
+              - list [ref=e100]:
+                - listitem [ref=e101]:
+                  - link "" [ref=e102] [cursor=pointer]:
+                    - /url: https://www.facebook.com/profile.php?id=61572179709909
+                    - generic [ref=e104]: 
+                - listitem [ref=e105]:
+                  - link "" [ref=e106] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/indisec/?viewAsMember=true
+                    - generic [ref=e108]: 
+                - listitem [ref=e109]:
+                  - link "" [ref=e110] [cursor=pointer]:
+                    - /url: https://www.instagram.com/indi.sec_/
+                    - generic [ref=e112]: 
+                - listitem [ref=e113]:
+                  - link "" [ref=e114] [cursor=pointer]:
+                    - /url: https://x.com/Indisec%5C
+                    - generic [ref=e116]: 
+            - list [ref=e119]:
+              - listitem [ref=e120]:
+                - link "Terms and Conditions" [ref=e121] [cursor=pointer]:
+                  - /url: https://indisec.com/termsandconditions
+              - listitem [ref=e122]:
+                - link "Privacy Policy" [ref=e123] [cursor=pointer]:
+                  - /url: https://indisec.com/privacypolicy
+            - list [ref=e126]:
+              - listitem [ref=e127]:
+                - link "Cookies Policy" [ref=e128] [cursor=pointer]:
+                  - /url: https://indisec.com/cookiepolicy
+              - listitem [ref=e129]:
+                - link "Indisec.com" [ref=e130] [cursor=pointer]:
+                  - /url: https://indisec.com/
+          - generic: "?"
+          - text:  

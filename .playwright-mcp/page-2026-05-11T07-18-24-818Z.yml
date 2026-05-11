@@ -1,0 +1,22 @@
+- generic [active] [ref=e1]:
+  - status
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - main [ref=e10]:
+      - generic [ref=e12]:
+        - heading "Log in to" [level=1] [ref=e14]
+        - link "Invalid login, please try again" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - alert [ref=e16]: Invalid login, please try again
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: Enter Password
+            - textbox "Enter Password" [ref=e20]
+          - heading "YOUR PASSWORD" [level=3] [ref=e21]
+          - link "Forgot Password?" [ref=e23] [cursor=pointer]:
+            - /url: https://indisec.edvantalabs.com/login/forgot_password.php
+          - generic [ref=e24]:
+            - link "BACK" [ref=e25] [cursor=pointer]:
+              - /url: https://indisec.edvantalabs.com/login/index.php
+            - button "CONTINUE" [ref=e26] [cursor=pointer]

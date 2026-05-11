@@ -1,0 +1,2 @@
+[   23282ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://indisec.edvantalabs.com/local/customlogin/password.php:0
+[   37563ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://indisec.edvantalabs.com/local/customlogin/password.php?loginredirect=1:0
