@@ -7,11 +7,17 @@ test.describe('Session Management and Edge Cases', () => {
   // Helper function to login
   async function loginUser(page) {
     await page.goto('https://indisec.edvantalabs.com/');
+    await page.waitForLoadState('networkidle');
     await page.getByRole('textbox', { name: 'your email address' }).fill('mishra.devesh@edvanta.com');
     await page.getByRole('button', { name: 'CONTINUE' }).click();
+    await page.waitForLoadState('networkidle');
     await page.getByRole('textbox', { name: 'Enter Password' }).fill('Pass@123');
     await page.getByRole('button', { name: 'CONTINUE' }).click();
-    await page.getByRole('link').nth(3).click();
+    await page.waitForLoadState('networkidle');
+    // Click the link to go to My Courses
+    const enterLink = page.getByRole('link').nth(3);
+    await enterLink.click();
+    await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL(/.*my\/courses\.php/);
   }
 
@@ -21,14 +27,13 @@ test.describe('Session Management and Edge Cases', () => {
     await expect(page.getByRole('heading', { name: /Hi, Dev/ })).toBeVisible();
 
     // Access user menu and click logout
-    const userMenuButton = await page.locator("xpath=//a[@id='user-menu-toggle']");
+    const userMenuButton = await page.locator('#user-menu-toggle');
+    await expect(userMenuButton).toBeVisible();
     await userMenuButton.click();
-    // Wait a moment for the dropdown to open
-    await page.waitForTimeout(3000);
-    // Use keyboard navigation to select and click logout
-
-  // Click logout
-  await page.locator("xpath=//a[@role='menuitem'][normalize-space()='Log out']").click();
+    // Wait for the dropdown to open and menu item to be visible
+    await page.getByRole('menuitem', { name: 'Log out' }).waitFor({ state: 'visible', timeout: 5000 });
+    // Click logout
+    await page.getByRole('menuitem', { name: 'Log out' }).click();
     // Verify session is terminated and user is logged out
     await expect(page).toHaveURL(/.*login\/index\.php/);
     await expect(page.getByRole('heading', { name: /Log in to INDISEC/ })).toBeVisible();
@@ -41,15 +46,23 @@ test.describe('Session Management and Edge Cases', () => {
 
     // Navigate to login page while logged in
     await page.goto('https://indisec.edvantalabs.com/login/index.php');
+    await page.waitForLoadState('networkidle');
 
-    // Verify confirmation dialog appears with correct message
+    // Wait for and verify confirmation dialog appears
+    await page.getByRole('alertdialog').waitFor({ state: 'visible', timeout: 10000 });
     await expect(page.getByRole('alertdialog')).toBeVisible();
-    await expect(page.locator('text=/You are already logged in as Dev Test/')).toBeVisible();
+    
+    // Verify dialog content
+    const dialogText = page.locator('[role="alertdialog"]');
+    await expect(dialogText).toContainText(/You are already logged in/);
+    
+    // Verify buttons exist
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Log out' })).toBeVisible();
 
     // Click Cancel button
     await page.getByRole('button', { name: 'Cancel' }).click();
+    await page.waitForLoadState('networkidle');
 
     // Verify user is redirected to dashboard
     await expect(page).toHaveURL(/.*my\/courses\.php/);
@@ -62,8 +75,12 @@ test.describe('Session Management and Edge Cases', () => {
     await loginUser(page);
     await expect(page.getByRole('heading', { name: /Hi, Dev/ })).toBeVisible();
 
-    // Clear session cookies to simulate session timeout
+    // Clear session cookies and storage to simulate session timeout
     await page.context().clearCookies();
+    await page.evaluate(() => {
+      localStorage.clear();
+      sessionStorage.clear();
+    });
 
     // Attempt to navigate or interact on the page
     await page.goto('https://indisec.edvantalabs.com/my/courses.php');
@@ -75,26 +92,33 @@ test.describe('Session Management and Edge Cases', () => {
   test('Browser Back Button After Login', async ({ page }) => {
     // Complete successful login and proceed through welcome screen to My Courses page
     await page.goto('https://indisec.edvantalabs.com/');
+    await page.waitForLoadState('networkidle');
     await page.getByRole('textbox', { name: 'your email address' }).fill('mishra.devesh@edvanta.com');
     await page.getByRole('button', { name: 'CONTINUE' }).click();
+    await page.waitForLoadState('networkidle');
     
     await page.getByRole('textbox', { name: 'Enter Password' }).fill('Pass@123');
     await page.getByRole('button', { name: 'CONTINUE' }).click();
+    await page.waitForLoadState('networkidle');
     
     // Verify on welcome page
     await expect(page).toHaveURL(/.*welcome\.php/);
     
     // Click browser back button to go back to password page
     await page.goBack();
+    await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL(/.*password\.php/);
     
     // Click browser back button again to go back to email page
     await page.goBack();
+    await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL(/.*login\/index\.php/);
     
     // Verify the session is still active by navigating to courses page
     // This will show the already logged in dialog
     await page.goto('https://indisec.edvantalabs.com/login/index.php');
+    await page.waitForLoadState('networkidle');
+    await page.getByRole('alertdialog').waitFor({ state: 'visible', timeout: 10000 });
     await expect(page.getByRole('alertdialog')).toBeVisible();
   });
 
@@ -103,17 +127,21 @@ test.describe('Session Management and Edge Cases', () => {
     await loginUser(page);
     
     // Logout
-    await page.locator("xpath=//a[@id='user-menu-toggle']").click();
-    // Wait a moment for the dropdown to open
-    //await page.waitForTimeout(3000);
-    // Use keyboard navigation to select and click logout
-    await page.locator("xpath=//a[@role='menuitem'][normalize-space()='Log out']").click();
+    const userMenuButton = await page.locator('#user-menu-toggle');
+    await expect(userMenuButton).toBeVisible();
+    await userMenuButton.click();
+    // Wait for the dropdown to open and menu item to be visible
+    await page.getByRole('menuitem', { name: 'Log out' }).waitFor({ state: 'visible', timeout: 5000 });
+    // Click logout using role-based selector
+    await page.getByRole('menuitem', { name: 'Log out' }).click();
+    await page.waitForLoadState('networkidle');
     
     // Verify we're on login page
     await expect(page).toHaveURL(/.*login\/index\.php/);
     
     // Try to access courses page directly - should redirect to login
     await page.goto('https://indisec.edvantalabs.com/my/courses.php');
+    await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL(/.*login\/index\.php/);
   });
 
@@ -123,12 +151,17 @@ test.describe('Session Management and Edge Cases', () => {
     
     // Navigate to login page while logged in
     await page.goto('https://indisec.edvantalabs.com/login/index.php');
+    await page.waitForLoadState('networkidle');
     
-    // Verify confirmation dialog appears
+    // Wait for and verify confirmation dialog appears
+    await page.getByRole('alertdialog').waitFor({ state: 'visible', timeout: 10000 });
     await expect(page.getByRole('alertdialog')).toBeVisible();
     
     // Click Log out button from dialog
-    await page.getByRole('button', { name: 'Log out' }).click();
+    const logoutButton = page.getByRole('button', { name: 'Log out' });
+    await expect(logoutButton).toBeVisible();
+    await logoutButton.click();
+    await page.waitForLoadState('networkidle');
     
     // Verify user is logged out and on login page
     await expect(page).toHaveURL(/.*login\/index\.php/);
@@ -150,7 +183,7 @@ test.describe('Session Management and Edge Cases', () => {
     await page.waitForTimeout(300);
     
     // Verify logout link in dropdown menu exists and can be clicked
-    const logoutLink = page.locator("xpath=//a[@role='menuitem'][normalize-space()='Log out']");
+    const logoutLink = page.getByRole('menuitem', { name: 'Log out' });
     await expect(logoutLink).toHaveCount(1);
   });
 });

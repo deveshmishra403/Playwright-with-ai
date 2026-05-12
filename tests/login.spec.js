@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Login and navigate to My Courses page', async ({ page }) => {
+test('Login and navigate to My Courses page @smoke', async ({ page }) => {
   // Navigate to the login page
   await page.goto('https://indisec.edvantalabs.com/');
 

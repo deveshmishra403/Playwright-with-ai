@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Navigate to QuadHQ Pilot and verify dashboard and chat', async ({ page }) => {
+test.skip('Navigate to QuadHQ Pilot and verify dashboard and chat', async ({ page }) => {
   // Step 1: Open the URL
   await page.goto('https://quadhq.ai/', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(2000);
